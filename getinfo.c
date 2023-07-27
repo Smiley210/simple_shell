@@ -1,6 +1,18 @@
 #include "shell.h"
 
 /**
+ * clear_info - initializes info_t struct
+ * @info: struct address
+ */
+void clear_info(info_t *info)
+{
+	info->arg = NULL;
+	info->argv = NULL;
+	info->path = NULL;
+	info->argc = 0;
+}
+
+/**
  * set_info - initializes info_t struct
  * @info: struct address
  * @av: argument vector
@@ -58,17 +70,5 @@ void free_info(info_t *info, int all)
 			close(info->readfd);
 		_putchar(BUF_FLUSH);
 	}
-}
-
-/**
- * clear_info - initializes info_t struct
- * @info: struct address
- */
-void clear_info(info_t *info)
-{
-	info->arg = NULL;
-	info->argv = NULL;
-	info->path = NULL;
-	info->argc = 0;
 }
 
